@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping Cart</title>
+    <script type="text/javascript" src="shopping.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1> Shopping Cart </h1>
+    <div>
+        <ul style="list-style: none;">
+            <li>Shoes $75.00</li>
+            <form>
+                Enter Quantity:
+                <input type="number" quantity="quantity">
+            </form>
+            <button onclick="pushToCart(item[1], price[1], 1)">Add Item</button>
+            <hr>
+            <li>Blouse $45.00</li>
+            <form>
+                Enter Quantity:
+                <input type="number" quantity="quantity">
+            </form>
+            <button onclick="pushToCart(Blouse, 45.00, 1)">Add Item</button>
+            <hr>
+            <li>Slacks $90.00</li>
+            <form>
+                Enter Quantity:
+                <input type="number" quantity="quantity">
+            </form>
+            <button onclick="pushToCart(Slacks, 90.00, 1)">Add Item</button>
+            <hr>
+            <li>Jacket $120.00</li>
+            <form>
+                Enter Quantity:
+                <input type="number" quantity="quantity">
+            </form>
+            <button onclick="pushToCart(Jacket, 120.00, 1)">Add Item</button>
+            <hr>
+            <li>Purse $60.00</li>
+            <form>
+                Enter Quantity:
+                <input type="number" quantity="quantity">
+            </form>
+            <button onclick="pushToCart(Purse, 60.00, 1)">Add Item</button>
+            <hr>
+            <li>Earrings $35.00</li>
+            <form>
+                Enter Quantity:
+                <input type="number" quantity="quantity">
+            </form>
+            <button onclick="pushToCart(Earrings, 35.00, 1)">Add Item</button>
+            <hr>
+            <li>Necklace $40.00</li>
+            <form>
+                Enter Quantity:
+                <input type="number" quantity="quantity">
+            </form>
+            <button onclick="pushToCart(Necklace, 40.00, 1)">Add Item</button>
+            <hr>
+        </ul>
+        <button id="clear-cart">Clear Cart</button>
+    </div>
+    <div>
+        <ul style="list-style: none;" id="show-cart">
+            <!-- -->
+        </ul>
+        <div>Total Cart: $<span id="total-cart"></span></div>
+    </div>
+    <script>
+    $(".add-to-cart").click(function(event) {
+        event.preventDefault();
+        var item = $(this).attr("data-item");
+        var price = Number($(this).attr("data-price"));
+        var quantity = $(this).attr("data-quantity");
+
+        pushToCart(item, price, 1)
+        displayCart();
+    });
+
+    displayCart();
+    </script>
+</body>
